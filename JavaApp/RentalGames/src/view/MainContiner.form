@@ -57,7 +57,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jpn_rental_selection" max="32767" attributes="0"/>
-                              <Component id="jPanel7" max="32767" attributes="0"/>
+                              <Component id="jpn_validate_user" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -67,7 +67,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="jpn_validate_user" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jpn_rental_selection" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -76,7 +76,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel7">
+                <Container class="javax.swing.JPanel" name="jpn_validate_user">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -207,7 +207,11 @@
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jbtn_rental_selection_delete" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jbtn_rental_selection_save" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jbtn_rental_selection_save" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                                      <Component id="jbtn_rental_selection_calcel" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -238,7 +242,10 @@
                                   <Component id="jlb_rental_selection_value" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbtn_rental_selection_save" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jbtn_rental_selection_save" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jbtn_rental_selection_calcel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jlb_rental_selection_message" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace pref="26" max="32767" attributes="0"/>
@@ -260,12 +267,7 @@
                     <Component class="javax.swing.JComboBox" name="jcb_rental_selection_name">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -279,7 +281,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jbtn_rental_selection_delete">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Eliminar"/>
+                        <Property name="text" type="java.lang.String" value="Limpiar"/>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jsp_rental_selection">
@@ -351,6 +353,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jlb_rental_selection_message">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jbtn_rental_selection_calcel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cancelar"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -627,7 +634,7 @@
                                 <Column editable="false" title="Director" type="java.lang.String"/>
                                 <Column editable="false" title="Protagonista" type="java.lang.String"/>
                                 <Column editable="false" title="Productor" type="java.lang.String"/>
-                                <Column editable="false" title="A&#xf1;o" type="java.lang.String"/>
+                                <Column editable="false" title="Lanzamiento" type="java.lang.String"/>
                                 <Column editable="false" title="Tecnolog&#xed;a" type="java.lang.String"/>
                               </Table>
                             </Property>
@@ -679,13 +686,19 @@
                         <Component class="javax.swing.JTable" name="jtbl_lowest_rental">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="2" rowCount="0">
+                              <Table columnCount="3" rowCount="0">
                                 <Column editable="false" title="T&#xed;tulo" type="java.lang.String"/>
                                 <Column editable="false" title="Rango de edad" type="java.lang.String"/>
+                                <Column editable="false" title="# de Rentas" type="java.lang.String"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>
@@ -923,7 +936,7 @@
                                       <Component id="jbtn_update_cost" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="278" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -952,12 +965,7 @@
                     <Component class="javax.swing.JComboBox" name="jcb_update_cost_name">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>

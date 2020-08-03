@@ -30,7 +30,6 @@ public class Conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.cx = (Connection)DriverManager.getConnection(url, user, pass);
-            System.out.println("Se conectó.");
         } catch (ClassNotFoundException|SQLException ex) {
             System.out.println("Sin conexión.");
         }
@@ -40,7 +39,6 @@ public class Conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             cx = (Connection)DriverManager.getConnection(url, user, pass);
-            System.out.println("Se conectó.");
         } catch (ClassNotFoundException|SQLException ex) {
             System.out.println("Sin conexión.");
         }

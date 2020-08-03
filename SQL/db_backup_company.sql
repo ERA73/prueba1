@@ -30,7 +30,7 @@ CREATE TABLE `cost` (
   PRIMARY KEY (`id_cost`),
   KEY `FK_cost_game` (`id_game`),
   CONSTRAINT `FK_cost_game` FOREIGN KEY (`id_game`) REFERENCES `game` (`id_game`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `rental` (
 
 LOCK TABLES `rental` WRITE;
 /*!40000 ALTER TABLE `rental` DISABLE KEYS */;
-INSERT INTO `rental` VALUES (1,1010101010,'2020-08-01','En prestamo',11000),(2,1212121212,'2020-07-01','Vencido',21000),(3,1313131313,'2020-04-01','Finalizado',63000),(4,1212121212,'2020-07-21','En prestamo',10000),(5,1313131313,'2020-05-01','Finalizado',11000),(6,1313131313,'2020-06-01','En prestamo',10000);
+INSERT INTO `rental` VALUES (1,1010101010,'2020-08-02','En prestamo',11000),(2,1212121212,'2020-07-01','Vencido',21000),(3,1313131313,'2020-04-01','Finalizado',63000),(4,1212121212,'2020-07-21','En prestamo',10000),(5,1313131313,'2020-05-01','Finalizado',11000),(6,1313131313,'2020-06-01','En prestamo',10000);
 /*!40000 ALTER TABLE `rental` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-01 22:45:03
+-- Dump completed on 2020-08-02 21:30:28

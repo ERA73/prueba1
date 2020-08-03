@@ -64,10 +64,6 @@ public class MainContiner extends javax.swing.JFrame {
         return jPanel6;
     }
 
-    public JPanel getjPanel7() {
-        return jPanel7;
-    }
-
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
@@ -122,6 +118,10 @@ public class MainContiner extends javax.swing.JFrame {
 
     public JButton getJbtn_rental_selection_add() {
         return jbtn_rental_selection_add;
+    }
+
+    public JButton getJbtn_rental_selection_calcel() {
+        return jbtn_rental_selection_calcel;
     }
 
     public JButton getJbtn_rental_selection_delete() {
@@ -260,6 +260,10 @@ public class MainContiner extends javax.swing.JFrame {
         return jpn_rental_selection;
     }
 
+    public JPanel getJpn_validate_user() {
+        return jpn_validate_user;
+    }
+
     public JScrollPane getJsp_game_catalogue() {
         return jsp_game_catalogue;
     }
@@ -333,9 +337,6 @@ public class MainContiner extends javax.swing.JFrame {
     }
 
     
-
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -348,7 +349,7 @@ public class MainContiner extends javax.swing.JFrame {
         jtp_rental = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        jpn_validate_user = new javax.swing.JPanel();
         jlb_validate_user_title = new javax.swing.JLabel();
         jlb_validate_user_document = new javax.swing.JLabel();
         jtf_validate_user_document = new javax.swing.JTextField();
@@ -369,6 +370,7 @@ public class MainContiner extends javax.swing.JFrame {
         jlb_rental_selection_value = new javax.swing.JLabel();
         jbtn_rental_selection_save = new javax.swing.JButton();
         jlb_rental_selection_message = new javax.swing.JLabel();
+        jbtn_rental_selection_calcel = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jlb_frequent_user = new javax.swing.JLabel();
@@ -421,7 +423,7 @@ public class MainContiner extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpn_validate_user.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlb_validate_user_title.setText("Verificar usuario");
 
@@ -431,14 +433,14 @@ public class MainContiner extends javax.swing.JFrame {
 
         jbtn_validate_user.setText("Verificar");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpn_validate_userLayout = new javax.swing.GroupLayout(jpn_validate_user);
+        jpn_validate_user.setLayout(jpn_validate_userLayout);
+        jpn_validate_userLayout.setHorizontalGroup(
+            jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpn_validate_userLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpn_validate_userLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jlb_validate_user_document)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -456,19 +458,19 @@ public class MainContiner extends javax.swing.JFrame {
                     .addComponent(jlb_validate_user_title))
                 .addContainerGap(160, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        jpn_validate_userLayout.setVerticalGroup(
+            jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpn_validate_userLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGroup(jpn_validate_userLayout.createSequentialGroup()
                         .addComponent(jlb_validate_user_title)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlb_validate_user_document)
                             .addComponent(jtf_validate_user_document, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jpn_validate_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlb_validate_user_email)
                         .addComponent(jtf_validate_user_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -482,11 +484,9 @@ public class MainContiner extends javax.swing.JFrame {
 
         jlb_rental_selection_name.setText("Título");
 
-        jcb_rental_selection_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jbtn_rental_selection_add.setText("Agregar");
 
-        jbtn_rental_selection_delete.setText("Eliminar");
+        jbtn_rental_selection_delete.setText("Limpiar");
 
         jtbl_rental_selection.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -519,6 +519,8 @@ public class MainContiner extends javax.swing.JFrame {
 
         jbtn_rental_selection_save.setText("Confirmar");
 
+        jbtn_rental_selection_calcel.setText("Cancelar");
+
         javax.swing.GroupLayout jpn_rental_selectionLayout = new javax.swing.GroupLayout(jpn_rental_selection);
         jpn_rental_selection.setLayout(jpn_rental_selectionLayout);
         jpn_rental_selectionLayout.setHorizontalGroup(
@@ -546,7 +548,10 @@ public class MainContiner extends javax.swing.JFrame {
                                         .addComponent(jbtn_rental_selection_add)
                                         .addGap(18, 18, 18)
                                         .addComponent(jbtn_rental_selection_delete))
-                                    .addComponent(jbtn_rental_selection_save))
+                                    .addGroup(jpn_rental_selectionLayout.createSequentialGroup()
+                                        .addComponent(jbtn_rental_selection_save)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jbtn_rental_selection_calcel)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -568,7 +573,9 @@ public class MainContiner extends javax.swing.JFrame {
                     .addComponent(jlb_rental_selection_total, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlb_rental_selection_value, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbtn_rental_selection_save)
+                .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_rental_selection_save)
+                    .addComponent(jbtn_rental_selection_calcel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlb_rental_selection_message, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -582,14 +589,14 @@ public class MainContiner extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jpn_rental_selection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpn_validate_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpn_validate_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpn_rental_selection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -632,7 +639,7 @@ public class MainContiner extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título", "Director", "Protagonista", "Productor", "Año", "Tecnología"
+                "Título", "Director", "Protagonista", "Productor", "Lanzamiento", "Tecnología"
             }
         ) {
             Class[] types = new Class [] {
@@ -657,14 +664,14 @@ public class MainContiner extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título", "Rango de edad"
+                "Título", "Rango de edad", "# de Rentas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -890,8 +897,6 @@ public class MainContiner extends javax.swing.JFrame {
 
         jlb_update_cost_title.setText("Actualizar precio de alquiler");
 
-        jcb_update_cost_name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jbtn_update_cost.setText("Asignar");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -908,7 +913,7 @@ public class MainContiner extends javax.swing.JFrame {
                         .addComponent(jtf_update_cost_value, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtn_update_cost)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1004,7 +1009,6 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1019,6 +1023,7 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_lowest_rental;
     private javax.swing.JButton jbtn_most_rented_game;
     private javax.swing.JButton jbtn_rental_selection_add;
+    private javax.swing.JButton jbtn_rental_selection_calcel;
     private javax.swing.JButton jbtn_rental_selection_delete;
     private javax.swing.JButton jbtn_rental_selection_save;
     private javax.swing.JButton jbtn_update_cost;
@@ -1053,6 +1058,7 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JLabel jlb_validate_user_email;
     private javax.swing.JLabel jlb_validate_user_title;
     private javax.swing.JPanel jpn_rental_selection;
+    private javax.swing.JPanel jpn_validate_user;
     private javax.swing.JScrollPane jsp_game_catalogue;
     private javax.swing.JScrollPane jsp_lowest_rental;
     private javax.swing.JScrollPane jsp_rental_selection;
