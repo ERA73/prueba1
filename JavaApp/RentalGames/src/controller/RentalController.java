@@ -112,6 +112,7 @@ public class RentalController {
     private void reset_rental(){
         DefaultTableModel dtm = (DefaultTableModel) this.main.getJtbl_rental_selection().getModel();
         dtm.setRowCount(0);
+        this.main.getJlb_rental_selection_message().setText("");
         rental_game_id = new ArrayList<Integer>();
     }
     
@@ -220,6 +221,7 @@ public class RentalController {
             bw.write("Fecha :"+ fecha + "\n");
             bw.write("Costo TOTAL :"+ total_cost + "\n");
             bw.close();
+            this.main.getJlb_rental_selection_message().setText("La factura se guardó satisfactoriamente en la carpeta raíz.");
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this.main, "No se pudo guardar la factura.");
