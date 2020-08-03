@@ -7,10 +7,17 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import view.MainContiner;
@@ -128,6 +135,7 @@ public class RentalController {
                     this.rental_game_cost.add(cost);
                 }
                 p.close();
+                update_total();
             }else{
                 JOptionPane.showMessageDialog(this.main, "El juego ya esta en la lista.");
             }
@@ -135,6 +143,14 @@ public class RentalController {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this.main, "No se pudo agregar el juego.");
         }
+    }
+    
+    private void update_total(){
+        float total_cost = 0;
+        for(Float cost:this.rental_game_cost){
+            total_cost += cost;
+        }
+        this.main.getJlb_rental_selection_value().setText(Float.toString(total_cost));
     }
     
     private float get_cost(int id){
@@ -168,7 +184,79 @@ public class RentalController {
     }
     
     private void save(){
-        
+        try {
+            float total_cost = 0;
+            for(Float cost:this.rental_game_cost){
+                total_cost += cost;
+            }
+            String sql_query = "Insert into rental (document, rental_date, status, cost) values(?, CURRENT_DATE(), \"En prestamo\", ?);";
+            PreparedStatement ps = c.conectar().prepareStatement(sql_query);
+            ps.setInt(1, this.document);
+            ps.setFloat(2, total_cost);
+            ps.execute();
+            ps.close();
+            int id_rental = get_last_rental_id(this.document);
+            for (Integer id_game:this.rental_game_id){
+                save_game_by_game(id_rental, id_game);
+            }
+            save_bill(id_rental, total_cost);
+            JOptionPane.showMessageDialog(this.main, "Se guardo correctamente.");
+            cancel();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this.main, "No se pudo guardar el alquiler.");
+        }
+    }
+    
+    private void save_bill(int rental, float total_cost){
+        String sFichero = "factura_"+rental+".txt";
+        System.out.println(sFichero);
+        File fichero = new File(sFichero);
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(sFichero));
+            bw.write("Factura #:"+ rental + "\n");
+            bw.write("Cliente :"+ this.document + "\n");
+            Date fecha = new Date();
+            bw.write("Fecha :"+ fecha + "\n");
+            bw.write("Costo TOTAL :"+ total_cost + "\n");
+            bw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this.main, "No se pudo guardar la factura.");
+        }
+    }
+    
+    private void save_game_by_game(int id_rental, int id_game){
+        try {
+            String sql_query = "insert into selection values(?, ?)";
+            PreparedStatement ps = c.conectar().prepareStatement(sql_query);
+            ps.setInt(1, id_rental);
+            ps.setInt(2, id_game);
+            ps.execute();
+            ps.close();
+            ps = null;
+            c.desconectar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this.main, "No se pudo guardar el juego.");
+        }
+    }
+    
+    private int get_last_rental_id(int id_user){
+        try {
+            Statement p = c.conectar().createStatement();
+            ResultSet rs = p.executeQuery("commit");
+            rs = p.executeQuery("Select id_rental from (select max(ren.rental_date), ren.id_rental from rental as ren where ren.document = "+id_user+" and ren.rental_date = CURRENT_DATE()) result");
+            int id_rental = -1;
+            while(rs.next()){
+                id_rental  = rs.getInt("id_rental");
+            }
+            p.close();
+            return id_rental;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this.main, "No se pudo consultar el susario mas frecuente.");
+            return -1;
+        }
     }
     
     private void cancel(){
@@ -176,6 +264,7 @@ public class RentalController {
         set_enabled_rental_panel(false);
         this.main.getJtf_validate_user_document().setText("");
         this.main.getJtf_validate_user_email().setText("");
+        reset_rental();
     }
     
     private void load_game_names(){
