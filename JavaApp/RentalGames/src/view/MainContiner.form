@@ -56,7 +56,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jPanel8" max="32767" attributes="0"/>
+                              <Component id="jpn_rental_selection" max="32767" attributes="0"/>
                               <Component id="jPanel7" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel8" max="32767" attributes="0"/>
+                          <Component id="jpn_rental_selection" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -170,7 +170,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel8">
+                <Container class="javax.swing.JPanel" name="jpn_rental_selection">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -382,16 +382,16 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jlb_frequent_user2" max="32767" attributes="0"/>
-                                              <Component id="jlb_frequent_user1" max="32767" attributes="0"/>
+                                              <Component id="jlb_days_sales" max="32767" attributes="0"/>
+                                              <Component id="jlb_most_rented_game" max="32767" attributes="0"/>
                                               <Component id="jlb_frequent_user" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jbtn_frequent_user1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jbtn_most_rented_game" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jlb_frequent_user_name1" max="32767" attributes="0"/>
+                                                  <Component id="jlb_most_rented_game_title" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jbtn_frequent_user" min="-2" max="-2" attributes="0"/>
@@ -399,9 +399,9 @@
                                                   <Component id="jlb_frequent_user_name" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
-                                                  <Component id="jbtn_frequent_user2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jbtn_days_sales" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jlb_frequent_user_name2" max="32767" attributes="0"/>
+                                                  <Component id="jlb_days_sales_total" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -448,15 +448,15 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jlb_frequent_user_name1" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jlb_frequent_user1" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jbtn_frequent_user1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlb_most_rented_game_title" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jlb_most_rented_game" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jbtn_most_rented_game" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jlb_frequent_user_name2" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jlb_frequent_user2" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jbtn_frequent_user2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlb_days_sales_total" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jlb_days_sales" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jbtn_days_sales" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -508,17 +508,17 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlb_frequent_user1">
+                <Component class="javax.swing.JLabel" name="jlb_most_rented_game">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="T&#xed;tulo mas rentado"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jbtn_frequent_user1">
+                <Component class="javax.swing.JButton" name="jbtn_most_rented_game">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlb_frequent_user_name1">
+                <Component class="javax.swing.JLabel" name="jlb_most_rented_game_title">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -527,17 +527,17 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlb_frequent_user2">
+                <Component class="javax.swing.JLabel" name="jlb_days_sales">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ventas del d&#xed;a"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jbtn_frequent_user2">
+                <Component class="javax.swing.JButton" name="jbtn_days_sales">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlb_frequent_user_name2">
+                <Component class="javax.swing.JLabel" name="jlb_days_sales_total">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -751,9 +751,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel4" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPanel5" max="32767" attributes="0"/>
+                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -778,27 +778,34 @@
                                   <Component id="jbtn_user_registry" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jlb_user_registry_title" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jlb_user_registry_name" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jlb_user_registry_age" min="-2" pref="70" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jtf_user_registry_name" min="-2" pref="189" max="-2" attributes="0"/>
+                                              <Component id="jtf_user_registry_age" min="-2" pref="189" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jlb_user_registry_document" min="-2" pref="70" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jtf_user_registry_document" min="-2" pref="189" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jlb_user_registry_email" min="-2" pref="70" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jtf_user_registry_email" min="-2" pref="189" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jlb_user_registry_phone" min="-2" pref="70" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jtf_user_registry_phone" min="-2" pref="189" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jlb_user_registry_title" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jlb_user_registry_name" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jtf_user_registry_name" min="-2" pref="189" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jlb_user_registry_document" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jtf_user_registry_document" min="-2" pref="189" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jlb_user_registry_email" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jtf_user_registry_email" min="-2" pref="189" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jlb_user_registry_phone" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jtf_user_registry_phone" min="-2" pref="189" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -832,9 +839,14 @@
                                   <Component id="jlb_user_registry_phone" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtf_user_registry_phone" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <EmptySpace pref="9" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlb_user_registry_age" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtf_user_registry_age" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jbtn_user_registry" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -878,6 +890,13 @@
                         <Property name="text" type="java.lang.String" value="Registrar"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="jlb_user_registry_age">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edad"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jtf_user_registry_age">
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel5">
@@ -919,7 +938,7 @@
                                   <Component id="jtf_update_cost_value" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jbtn_update_cost" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="204" max="32767" attributes="0"/>
+                              <EmptySpace pref="166" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

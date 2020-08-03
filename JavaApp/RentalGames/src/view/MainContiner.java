@@ -5,19 +5,337 @@
  */
 package view;
 
+import controller.Conexion;
+import controller.RegistryController;
+import controller.RentalController;
+import controller.StatisticsController;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Esteban
  */
 public class MainContiner extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainContiner
-     */
+    private RegistryController registry;
+    private StatisticsController statistics;
+    private RentalController rental;
+    
     public MainContiner() {
         initComponents();
+        this.registry = new RegistryController(this);
+        this.statistics = new StatisticsController(this);
+        this.rental = new RentalController(this);
     }
 
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    public JPanel getjPanel5() {
+        return jPanel5;
+    }
+
+    public JPanel getjPanel6() {
+        return jPanel6;
+    }
+
+    public JPanel getjPanel7() {
+        return jPanel7;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public JSeparator getjSeparator1() {
+        return jSeparator1;
+    }
+
+    public JSeparator getjSeparator2() {
+        return jSeparator2;
+    }
+
+    public JSeparator getjSeparator3() {
+        return jSeparator3;
+    }
+
+    public JSeparator getjSeparator4() {
+        return jSeparator4;
+    }
+
+    public JSeparator getjSeparator5() {
+        return jSeparator5;
+    }
+
+    public JButton getJbtn_days_sales() {
+        return jbtn_days_sales;
+    }
+
+    public JButton getJbtn_frequent_user() {
+        return jbtn_frequent_user;
+    }
+
+    public JButton getJbtn_game_catalogue() {
+        return jbtn_game_catalogue;
+    }
+
+    public JButton getJbtn_lowest_rental() {
+        return jbtn_lowest_rental;
+    }
+
+    public JButton getJbtn_most_rented_game() {
+        return jbtn_most_rented_game;
+    }
+
+    public JButton getJbtn_rental_selection_add() {
+        return jbtn_rental_selection_add;
+    }
+
+    public JButton getJbtn_rental_selection_delete() {
+        return jbtn_rental_selection_delete;
+    }
+
+    public JButton getJbtn_rental_selection_save() {
+        return jbtn_rental_selection_save;
+    }
+
+    public JButton getJbtn_update_cost() {
+        return jbtn_update_cost;
+    }
+
+    public JButton getJbtn_user_registry() {
+        return jbtn_user_registry;
+    }
+
+    public JButton getJbtn_validate_user() {
+        return jbtn_validate_user;
+    }
+
+    public JComboBox<String> getJcb_rental_selection_name() {
+        return jcb_rental_selection_name;
+    }
+
+    public JComboBox<String> getJcb_update_cost_name() {
+        return jcb_update_cost_name;
+    }
+
+    public JLabel getJlb_days_sales() {
+        return jlb_days_sales;
+    }
+
+    public JLabel getJlb_days_sales_total() {
+        return jlb_days_sales_total;
+    }
+
+    public JLabel getJlb_director() {
+        return jlb_director;
+    }
+
+    public JLabel getJlb_frequent_user() {
+        return jlb_frequent_user;
+    }
+
+    public JLabel getJlb_frequent_user_name() {
+        return jlb_frequent_user_name;
+    }
+
+    public JLabel getJlb_game_catalogue_title() {
+        return jlb_game_catalogue_title;
+    }
+
+    public JLabel getJlb_lowest_rental() {
+        return jlb_lowest_rental;
+    }
+
+    public JLabel getJlb_most_rented_game() {
+        return jlb_most_rented_game;
+    }
+
+    public JLabel getJlb_most_rented_game_title() {
+        return jlb_most_rented_game_title;
+    }
+
+    public JLabel getJlb_producer() {
+        return jlb_producer;
+    }
+
+    public JLabel getJlb_protagonist() {
+        return jlb_protagonist;
+    }
+
+    public JLabel getJlb_rental_selection_message() {
+        return jlb_rental_selection_message;
+    }
+
+    public JLabel getJlb_rental_selection_name() {
+        return jlb_rental_selection_name;
+    }
+
+    public JLabel getJlb_rental_selection_title() {
+        return jlb_rental_selection_title;
+    }
+
+    public JLabel getJlb_rental_selection_total() {
+        return jlb_rental_selection_total;
+    }
+
+    public JLabel getJlb_rental_selection_value() {
+        return jlb_rental_selection_value;
+    }
+
+    public JLabel getJlb_update_cost_title() {
+        return jlb_update_cost_title;
+    }
+
+    public JLabel getJlb_user_registry_age() {
+        return jlb_user_registry_age;
+    }
+
+    public JLabel getJlb_user_registry_document() {
+        return jlb_user_registry_document;
+    }
+
+    public JLabel getJlb_user_registry_email() {
+        return jlb_user_registry_email;
+    }
+
+    public JLabel getJlb_user_registry_name() {
+        return jlb_user_registry_name;
+    }
+
+    public JLabel getJlb_user_registry_phone() {
+        return jlb_user_registry_phone;
+    }
+
+    public JLabel getJlb_user_registry_title() {
+        return jlb_user_registry_title;
+    }
+
+    public JLabel getJlb_validate_user_document() {
+        return jlb_validate_user_document;
+    }
+
+    public JLabel getJlb_validate_user_email() {
+        return jlb_validate_user_email;
+    }
+
+    public JLabel getJlb_validate_user_title() {
+        return jlb_validate_user_title;
+    }
+
+    public JPanel getJpn_rental_selection() {
+        return jpn_rental_selection;
+    }
+
+    public JScrollPane getJsp_game_catalogue() {
+        return jsp_game_catalogue;
+    }
+
+    public JScrollPane getJsp_lowest_rental() {
+        return jsp_lowest_rental;
+    }
+
+    public JScrollPane getJsp_rental_selection() {
+        return jsp_rental_selection;
+    }
+
+    public JTable getJtbl_game_catalogue() {
+        return jtbl_game_catalogue;
+    }
+
+    public JTable getJtbl_lowest_rental() {
+        return jtbl_lowest_rental;
+    }
+
+    public JTable getJtbl_rental_selection() {
+        return jtbl_rental_selection;
+    }
+
+    public JTextField getJtf_director() {
+        return jtf_director;
+    }
+
+    public JTextField getJtf_producer() {
+        return jtf_producer;
+    }
+
+    public JTextField getJtf_protagonist() {
+        return jtf_protagonist;
+    }
+
+    public JTextField getJtf_update_cost_value() {
+        return jtf_update_cost_value;
+    }
+
+    public JTextField getJtf_user_registry_age() {
+        return jtf_user_registry_age;
+    }
+
+    public JTextField getJtf_user_registry_document() {
+        return jtf_user_registry_document;
+    }
+
+    public JTextField getJtf_user_registry_email() {
+        return jtf_user_registry_email;
+    }
+
+    public JTextField getJtf_user_registry_name() {
+        return jtf_user_registry_name;
+    }
+
+    public JTextField getJtf_user_registry_phone() {
+        return jtf_user_registry_phone;
+    }
+
+    public JTextField getJtf_validate_user_document() {
+        return jtf_validate_user_document;
+    }
+
+    public JTextField getJtf_validate_user_email() {
+        return jtf_validate_user_email;
+    }
+
+    public JTabbedPane getJtp_rental() {
+        return jtp_rental;
+    }
+
+    
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +357,7 @@ public class MainContiner extends javax.swing.JFrame {
         jtf_validate_user_email = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jbtn_validate_user = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
+        jpn_rental_selection = new javax.swing.JPanel();
         jlb_rental_selection_title = new javax.swing.JLabel();
         jlb_rental_selection_name = new javax.swing.JLabel();
         jcb_rental_selection_name = new javax.swing.JComboBox<>();
@@ -56,12 +374,12 @@ public class MainContiner extends javax.swing.JFrame {
         jlb_frequent_user = new javax.swing.JLabel();
         jbtn_frequent_user = new javax.swing.JButton();
         jlb_frequent_user_name = new javax.swing.JLabel();
-        jlb_frequent_user1 = new javax.swing.JLabel();
-        jbtn_frequent_user1 = new javax.swing.JButton();
-        jlb_frequent_user_name1 = new javax.swing.JLabel();
-        jlb_frequent_user2 = new javax.swing.JLabel();
-        jbtn_frequent_user2 = new javax.swing.JButton();
-        jlb_frequent_user_name2 = new javax.swing.JLabel();
+        jlb_most_rented_game = new javax.swing.JLabel();
+        jbtn_most_rented_game = new javax.swing.JButton();
+        jlb_most_rented_game_title = new javax.swing.JLabel();
+        jlb_days_sales = new javax.swing.JLabel();
+        jbtn_days_sales = new javax.swing.JButton();
+        jlb_days_sales_total = new javax.swing.JLabel();
         jlb_game_catalogue_title = new javax.swing.JLabel();
         jlb_director = new javax.swing.JLabel();
         jtf_director = new javax.swing.JTextField();
@@ -93,6 +411,8 @@ public class MainContiner extends javax.swing.JFrame {
         jlb_user_registry_phone = new javax.swing.JLabel();
         jtf_user_registry_phone = new javax.swing.JTextField();
         jbtn_user_registry = new javax.swing.JButton();
+        jlb_user_registry_age = new javax.swing.JLabel();
+        jtf_user_registry_age = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jlb_update_cost_title = new javax.swing.JLabel();
         jcb_update_cost_name = new javax.swing.JComboBox<>();
@@ -156,7 +476,7 @@ public class MainContiner extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpn_rental_selection.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlb_rental_selection_title.setText("Selección de juegos");
 
@@ -199,26 +519,26 @@ public class MainContiner extends javax.swing.JFrame {
 
         jbtn_rental_selection_save.setText("Confirmar");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpn_rental_selectionLayout = new javax.swing.GroupLayout(jpn_rental_selection);
+        jpn_rental_selection.setLayout(jpn_rental_selectionLayout);
+        jpn_rental_selectionLayout.setHorizontalGroup(
+            jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_rental_selectionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jlb_rental_selection_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlb_rental_selection_title, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpn_rental_selectionLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jsp_rental_selection)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(jpn_rental_selectionLayout.createSequentialGroup()
+                                .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpn_rental_selectionLayout.createSequentialGroup()
                                         .addComponent(jlb_rental_selection_total)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jlb_rental_selection_value, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addGroup(jpn_rental_selectionLayout.createSequentialGroup()
                                         .addComponent(jlb_rental_selection_name)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jcb_rental_selection_name, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,13 +550,13 @@ public class MainContiner extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        jpn_rental_selectionLayout.setVerticalGroup(
+            jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpn_rental_selectionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlb_rental_selection_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlb_rental_selection_name)
                     .addComponent(jcb_rental_selection_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_rental_selection_add)
@@ -244,7 +564,7 @@ public class MainContiner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jsp_rental_selection, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpn_rental_selectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlb_rental_selection_total, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlb_rental_selection_value, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -261,7 +581,7 @@ public class MainContiner extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpn_rental_selection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -271,7 +591,7 @@ public class MainContiner extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpn_rental_selection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -285,17 +605,17 @@ public class MainContiner extends javax.swing.JFrame {
 
         jlb_frequent_user_name.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jlb_frequent_user1.setText("Título mas rentado");
+        jlb_most_rented_game.setText("Título mas rentado");
 
-        jbtn_frequent_user1.setText("Consultar");
+        jbtn_most_rented_game.setText("Consultar");
 
-        jlb_frequent_user_name1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jlb_most_rented_game_title.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jlb_frequent_user2.setText("Ventas del día");
+        jlb_days_sales.setText("Ventas del día");
 
-        jbtn_frequent_user2.setText("Consultar");
+        jbtn_days_sales.setText("Consultar");
 
-        jlb_frequent_user_name2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jlb_days_sales_total.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jlb_game_catalogue_title.setText("Catalogo de juegos");
 
@@ -398,23 +718,23 @@ public class MainContiner extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jlb_frequent_user2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jlb_frequent_user1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlb_days_sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlb_most_rented_game, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jlb_frequent_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbtn_frequent_user1)
+                                        .addComponent(jbtn_most_rented_game)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlb_frequent_user_name1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jlb_most_rented_game_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jbtn_frequent_user)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jlb_frequent_user_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbtn_frequent_user2)
+                                        .addComponent(jbtn_days_sales)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlb_frequent_user_name2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jlb_days_sales_total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlb_game_catalogue_title)
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -450,14 +770,14 @@ public class MainContiner extends javax.swing.JFrame {
                     .addComponent(jbtn_frequent_user))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlb_frequent_user_name1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlb_frequent_user1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_frequent_user1))
+                    .addComponent(jlb_most_rented_game_title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlb_most_rented_game, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_most_rented_game))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlb_frequent_user_name2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlb_frequent_user2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_frequent_user2))
+                    .addComponent(jlb_days_sales_total, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlb_days_sales, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_days_sales))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -499,6 +819,8 @@ public class MainContiner extends javax.swing.JFrame {
 
         jbtn_user_registry.setText("Registrar");
 
+        jlb_user_registry_age.setText("Edad");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -509,24 +831,29 @@ public class MainContiner extends javax.swing.JFrame {
                     .addComponent(jbtn_user_registry, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlb_user_registry_title)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jlb_user_registry_name, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlb_user_registry_age, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtf_user_registry_name, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jlb_user_registry_document, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtf_user_registry_document, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jlb_user_registry_email, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtf_user_registry_email, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jlb_user_registry_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtf_user_registry_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jtf_user_registry_age, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlb_user_registry_title)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jlb_user_registry_name, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtf_user_registry_name, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jlb_user_registry_document, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtf_user_registry_document, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jlb_user_registry_email, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtf_user_registry_email, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jlb_user_registry_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtf_user_registry_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(496, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -550,9 +877,13 @@ public class MainContiner extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlb_user_registry_phone)
                     .addComponent(jtf_user_registry_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlb_user_registry_age)
+                    .addComponent(jtf_user_registry_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jbtn_user_registry)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -589,7 +920,7 @@ public class MainContiner extends javax.swing.JFrame {
                     .addComponent(jcb_update_cost_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_update_cost_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_update_cost))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -607,9 +938,9 @@ public class MainContiner extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -674,7 +1005,6 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -683,11 +1013,11 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JButton jbtn_days_sales;
     private javax.swing.JButton jbtn_frequent_user;
-    private javax.swing.JButton jbtn_frequent_user1;
-    private javax.swing.JButton jbtn_frequent_user2;
     private javax.swing.JButton jbtn_game_catalogue;
     private javax.swing.JButton jbtn_lowest_rental;
+    private javax.swing.JButton jbtn_most_rented_game;
     private javax.swing.JButton jbtn_rental_selection_add;
     private javax.swing.JButton jbtn_rental_selection_delete;
     private javax.swing.JButton jbtn_rental_selection_save;
@@ -696,15 +1026,15 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_validate_user;
     private javax.swing.JComboBox<String> jcb_rental_selection_name;
     private javax.swing.JComboBox<String> jcb_update_cost_name;
+    private javax.swing.JLabel jlb_days_sales;
+    private javax.swing.JLabel jlb_days_sales_total;
     private javax.swing.JLabel jlb_director;
     private javax.swing.JLabel jlb_frequent_user;
-    private javax.swing.JLabel jlb_frequent_user1;
-    private javax.swing.JLabel jlb_frequent_user2;
     private javax.swing.JLabel jlb_frequent_user_name;
-    private javax.swing.JLabel jlb_frequent_user_name1;
-    private javax.swing.JLabel jlb_frequent_user_name2;
     private javax.swing.JLabel jlb_game_catalogue_title;
     private javax.swing.JLabel jlb_lowest_rental;
+    private javax.swing.JLabel jlb_most_rented_game;
+    private javax.swing.JLabel jlb_most_rented_game_title;
     private javax.swing.JLabel jlb_producer;
     private javax.swing.JLabel jlb_protagonist;
     private javax.swing.JLabel jlb_rental_selection_message;
@@ -713,6 +1043,7 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JLabel jlb_rental_selection_total;
     private javax.swing.JLabel jlb_rental_selection_value;
     private javax.swing.JLabel jlb_update_cost_title;
+    private javax.swing.JLabel jlb_user_registry_age;
     private javax.swing.JLabel jlb_user_registry_document;
     private javax.swing.JLabel jlb_user_registry_email;
     private javax.swing.JLabel jlb_user_registry_name;
@@ -721,6 +1052,7 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JLabel jlb_validate_user_document;
     private javax.swing.JLabel jlb_validate_user_email;
     private javax.swing.JLabel jlb_validate_user_title;
+    private javax.swing.JPanel jpn_rental_selection;
     private javax.swing.JScrollPane jsp_game_catalogue;
     private javax.swing.JScrollPane jsp_lowest_rental;
     private javax.swing.JScrollPane jsp_rental_selection;
@@ -731,6 +1063,7 @@ public class MainContiner extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_producer;
     private javax.swing.JTextField jtf_protagonist;
     private javax.swing.JTextField jtf_update_cost_value;
+    private javax.swing.JTextField jtf_user_registry_age;
     private javax.swing.JTextField jtf_user_registry_document;
     private javax.swing.JTextField jtf_user_registry_email;
     private javax.swing.JTextField jtf_user_registry_name;
