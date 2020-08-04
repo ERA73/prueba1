@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Filtros</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
-	<script src="main_controller.js"></script>
-	<title>Document</title>
+	<script src="https://code.angularjs.org/1.8.0/i18n/angular-locale_es-es.js"></script>
+	<script src="controller/mainController.js"></script>
 </head>
-<body>
-	<div ng-app>
-		<label for="">Nombre</label>
-		<input type="text" placeholder="Escribe tu nombre" ng-model="nombre">
-		<hr>
-		<h1>Hola {{nombre}}!</h1>
+<body ng-app="miAp">
+	<div  class="container">
+		<div class="panel panel-primary" ng-controller="MyTableData">
+			<div class="panel-heading">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Escribir documento" ng-model="documento">
+					<input type="text" class="form-control" placeholder="Escribir emain" ng-model="email">
+					<button ng-click="buscar()">Buscar</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Título</th>
+							<th>Protagonista</th>
+							<th>Productor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="juego in juegos">
+							<td>{{juego.title | uppercase}}</td>
+							<td>{{juego.protagonist}}</td>
+							<td>{{juego.producer}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h3>{{value}}</h3>
+			</div>
+		</div>
 	</div>
-</body>
-</html>
+	</body>
+	</html>
